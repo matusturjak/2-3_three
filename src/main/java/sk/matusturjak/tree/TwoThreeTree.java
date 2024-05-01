@@ -1,8 +1,8 @@
-package sk.matusturjak;
+package sk.matusturjak.tree;
 
-import sk.matusturjak.nodes.AbstractNode;
-import sk.matusturjak.nodes.FourNode;
-import sk.matusturjak.nodes.TwoThreeNode;
+import sk.matusturjak.tree.nodes.AbstractNode;
+import sk.matusturjak.tree.nodes.FourNode;
+import sk.matusturjak.tree.nodes.TwoThreeNode;
 
 import java.util.*;
 

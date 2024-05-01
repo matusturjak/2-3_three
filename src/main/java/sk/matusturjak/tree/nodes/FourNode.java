@@ -1,4 +1,4 @@
-package sk.matusturjak.nodes;
+package sk.matusturjak.tree.nodes;
 
 import java.util.Comparator;
 

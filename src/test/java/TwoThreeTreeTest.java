@@ -1,12 +1,12 @@
 import org.junit.Test;
-import sk.matusturjak.TwoThreeTree;
+import sk.matusturjak.tree.TwoThreeTree;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import sk.matusturjak.nodes.TwoThreeNode;
+import sk.matusturjak.tree.nodes.TwoThreeNode;
 
 public class TwoThreeTreeTest {
     
