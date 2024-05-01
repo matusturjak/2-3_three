@@ -1,8 +1,8 @@
-package structure;
+package sk.matusturjak;
 
-import structure.nodes.AbstractNode;
-import structure.nodes.FourNode;
-import structure.nodes.TwoThreeNode;
+import sk.matusturjak.nodes.AbstractNode;
+import sk.matusturjak.nodes.FourNode;
+import sk.matusturjak.nodes.TwoThreeNode;
 
 import java.util.*;
 

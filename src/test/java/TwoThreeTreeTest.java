@@ -1,11 +1,12 @@
 import org.junit.Test;
-import structure.TwoThreeTree;
+import sk.matusturjak.TwoThreeTree;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-import structure.nodes.TwoThreeNode;
+
+import sk.matusturjak.nodes.TwoThreeNode;
 
 public class TwoThreeTreeTest {
     
@@ -368,5 +369,83 @@ public class TwoThreeTreeTest {
         tree.insertData(new TwoThreeObject(807));
 
         tree.searchData(new TwoThreeObject(311), new TwoThreeObject(311)).forEach(obj -> System.out.println(obj.getKey()));
+    }
+
+    @Test
+    public void testSearchOperation() {
+        this.random.setSeed(this.seed.nextLong());
+
+        TwoThreeTree<TwoThreeObject> tree = new TwoThreeTree<>();
+
+        int count = 0;
+        int notInserted = 0;
+        while (count != 30000000) {
+            if (tree.insertData(new TwoThreeObject(count))) {
+                if (count % 1000000 == 0) {
+                    System.out.println(count);
+                }
+                count++;
+            } else {
+                notInserted++;
+                if (notInserted % 10000 == 0) {
+                    System.out.println("Not inserted" + notInserted);
+                }
+            }
+        }
+
+        System.out.println("data inserted");
+    }
+
+    @Test
+    public void testIntervalSearchTree() {
+        this.random.setSeed(this.seed.nextLong());
+
+        TwoThreeTree<TwoThreeObject> tree = new TwoThreeTree<>();
+
+        int count = 0;
+        while (count != 30000000) {
+            int rand = random.nextInt(1000000000);
+            if (tree.insertData(new TwoThreeObject(rand))) {
+                count++;
+            }
+        }
+
+        System.out.println(tree.getSize());
+
+        TwoThreeObject lower = new TwoThreeObject(5000);
+        TwoThreeObject upper = new TwoThreeObject(50000);
+        long start = System.currentTimeMillis();
+        List<TwoThreeObject> founded = tree.searchData(lower,upper);
+        long end = System.currentTimeMillis();
+
+        System.out.println("Duration - " + (end - start));
+        System.out.println(founded.size());
+    }
+
+    @Test
+    public void testIntervalSearchArrayList() {
+        this.random.setSeed(this.seed.nextLong());
+        List<TwoThreeObject> list = new ArrayList<>();
+
+        int count = 0;
+        while (count != 20000000) {
+            int rand = random.nextInt(100000000);
+            list.add(new TwoThreeObject(rand));
+            count++;
+        }
+
+        TwoThreeObject lower = new TwoThreeObject(500);
+        TwoThreeObject upper = new TwoThreeObject(50000);
+        List<TwoThreeObject> founded = new ArrayList<>();
+
+        long start = System.currentTimeMillis();
+        list.forEach(twoThreeObject -> {
+            if (twoThreeObject.compareTo(lower) >= 0 && twoThreeObject.compareTo(upper) < 0) {
+                founded.add(twoThreeObject);
+            }
+        });
+        long end = System.currentTimeMillis();
+        System.out.println("Duration - " + (end - start));
+        System.out.println(founded.size());
     }
 }

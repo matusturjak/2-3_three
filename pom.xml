@@ -6,7 +6,7 @@
 
     <groupId>sk.matusturjak</groupId>
     <artifactId>2-3_tree</artifactId>
-    <version>1.0</version>
+    <version>1.0.2</version>
     <name>2-3 Tree</name>
     <description>No-recursive version of 2-3 Tree</description>
 
